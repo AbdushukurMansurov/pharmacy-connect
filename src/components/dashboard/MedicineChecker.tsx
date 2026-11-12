@@ -48,8 +48,7 @@ export function MedicineChecker({ medicines, pharmacies, loading, onGetFree, onA
           freeOnly ? "border-success bg-secondary" : "bg-card",
         )}
       >
-        <Switch id="free-only" checked={freeOnly} onCheckedChange={setFreeOnly}
-          className="h-9 w-16 shrink-0 data-[state=checked]:bg-success [&>span]:h-8 [&>span]:w-8 [&>span]:data-[state=checked]:translate-x-7" />
+        <Switch id="free-only" size="lg" checked={freeOnly} onCheckedChange={setFreeOnly} />
         <span>
           <span className="block text-xl font-bold">Faqat Davlat reimbursatsiyasi (Bepul dorilar)</span>
           <span className="block text-lg text-muted-foreground">DTSJ orqali 0 so'mga beriladigan dorilar va ular bor dorixonalar</span>
