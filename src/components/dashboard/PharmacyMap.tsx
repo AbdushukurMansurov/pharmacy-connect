@@ -76,7 +76,7 @@ export default function PharmacyMap({ pharmacies, highlightedIds, selectedId, us
     const selected = pharmacies.find((p) => p.id === selectedId);
     if (selected?.latitude != null && selected.longitude != null) {
       map.setView([selected.latitude, selected.longitude], 14, { animate: true });
-    } else if (points.length === 1) {
+    } else if (points.length === 1 && points[0]) {
       map.setView(points[0], 13, { animate: true });
     } else if (points.length > 1) {
       map.fitBounds(L.latLngBounds(points), { padding: [48, 48], maxZoom: 13 });

@@ -151,7 +151,7 @@ export function PharmacyFinder({ pharmacies, highlight, onClearHighlight, onAddT
 }
 
 function PharmacyCard({ p, km, selected, highlighted, freeMedicine, onSelect }: {
-  p: EnrichedPharmacy; km: number | null; selected: boolean; highlighted: boolean; freeMedicine?: string; onSelect: () => void;
+  p: EnrichedPharmacy; km: number | null; selected: boolean; highlighted: boolean; freeMedicine: string | undefined; onSelect: () => void;
 }) {
   return (
     <li
