@@ -335,7 +335,7 @@ function MonthCalendar({ store, activeIssuedAt }: { store: CareStore; activeIssu
         </div>
 
         <div className="rounded-2xl border-2 bg-card p-5">
-          <p className="text-xl font-bold capitalize">{formatUzDate(selected, true)}</p>
+          <p className="text-xl font-bold">{formatUzDate(selected, true)}</p>
           {store.meds.length === 0 ? (
             <p className="mt-2 text-lg text-muted-foreground">Hali dori qo'shilmagan. «Dori mavjudligini tekshirish» bo'limidan «Taqvimga» tugmasini bosing.</p>
           ) : (
