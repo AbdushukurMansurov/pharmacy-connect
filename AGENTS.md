@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Roles live in `public.user_roles` (enum patient/doctor/pharmacist), assigned by the `handle_new_user` signup trigger; check them with `has_role()` in RLS — never trust client state for privileges.
+- Prescription code (12 digits) and `expires_at` (issued + 7 days) are set by DB triggers and are immutable on update; clients never compute them.
