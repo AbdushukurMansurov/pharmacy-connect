@@ -185,9 +185,10 @@ function ScannerMock({ active, onDone }: { active: boolean; onDone: () => void }
 function Countdown({ active, onShowFreePharmacies }: { active: ActiveRx | null; onShowFreePharmacies: (m: Medicine) => void }) {
   const [now, setNow] = useState(() => new Date());
   useEffect(() => {
+    setNow(new Date());
     const t = setInterval(() => setNow(new Date()), 30_000);
     return () => clearInterval(t);
-  }, []);
+  }, [active]);
 
   if (!active) {
     return (
