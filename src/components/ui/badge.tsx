@@ -16,6 +16,7 @@ const badgeVariants = cva(
         outline: "text-foreground",
         success: "border-transparent bg-success text-success-foreground",
         partner: "border-transparent bg-accent text-accent-foreground",
+        warning: "border-transparent bg-warning text-warning-foreground",
       },
     },
     defaultVariants: {
