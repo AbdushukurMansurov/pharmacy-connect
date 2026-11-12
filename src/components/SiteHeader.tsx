@@ -17,7 +17,7 @@ export function SiteHeader() {
     navigate({ to: "/auth", replace: true });
   }
 
-  const link = "text-sm font-medium text-muted-foreground hover:text-foreground transition-colors";
+  const link = "text-base font-semibold text-muted-foreground hover:text-foreground transition-colors";
   return (
     <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-4">
@@ -28,17 +28,17 @@ export function SiteHeader() {
           Shifo
         </Link>
         <nav className="hidden gap-5 sm:flex">
-          <Link to="/medicines" className={link} activeProps={{ className: "text-foreground" }}>Medicines</Link>
-          <Link to="/pharmacies" className={link} activeProps={{ className: "text-foreground" }}>Pharmacies</Link>
+          <Link to="/medicines" className={link} activeProps={{ className: "text-foreground" }}>Dorilar</Link>
+          <Link to="/pharmacies" className={link} activeProps={{ className: "text-foreground" }}>Dorixonalar</Link>
         </nav>
         <div className="ml-auto flex items-center gap-2">
           {ready && user ? (
             <>
-              <Button asChild variant="ghost" size="sm"><Link to="/dashboard">Dashboard</Link></Button>
-              <Button variant="outline" size="sm" onClick={signOut}>Sign out</Button>
+              <Button asChild variant="ghost" size="sm"><Link to="/dashboard">Bosh panel</Link></Button>
+              <Button variant="outline" size="sm" onClick={signOut}>Chiqish</Button>
             </>
           ) : ready ? (
-            <Button asChild size="sm"><Link to="/auth">Sign in</Link></Button>
+            <Button asChild size="sm"><Link to="/auth">Kirish</Link></Button>
           ) : null}
         </div>
       </div>
