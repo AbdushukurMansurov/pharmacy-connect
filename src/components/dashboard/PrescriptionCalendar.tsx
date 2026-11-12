@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { addDays, addMonths, isSameDay, isSameMonth, startOfDay, subMonths } from "date-fns";
 import { AlarmClock, Check, ChevronLeft, ChevronRight, MapPinned, QrCode, ScanLine, Stethoscope, Trash2 } from "lucide-react";
 import { toast } from "sonner";
@@ -163,11 +163,13 @@ export function PrescriptionCalendar({ prescriptions, medicines, store, onShowFr
 }
 
 function ScannerMock({ active, onDone }: { active: boolean; onDone: () => void }) {
+  const doneRef = useRef(onDone);
+  doneRef.current = onDone;
   useEffect(() => {
     if (!active) return;
-    const t = setTimeout(onDone, 2200);
+    const t = setTimeout(() => doneRef.current(), 2200);
     return () => clearTimeout(t);
-  }, [active, onDone]);
+  }, [active]);
   return (
     <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-2xl bg-foreground">
       <div className="absolute inset-8 rounded-xl border-4 border-dashed border-accent" />
