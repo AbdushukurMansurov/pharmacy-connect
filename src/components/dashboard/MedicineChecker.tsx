@@ -84,7 +84,7 @@ function MedicineCard({ m, stock, showStock, tracked, onGetFree, onAddToCalendar
   const free = isFreeMedicine(m);
   const price = patientPrice(m);
   return (
-    <li className={cn("flex flex-col rounded-2xl border-2 bg-card p-5", free && "border-success")}>
+    <li className={cn("flex min-w-0 flex-col rounded-2xl border-2 bg-card p-5", free && "border-success")}>
       <div className="flex items-start justify-between gap-3">
         <div>
           <h3 className="text-2xl font-bold">{m.brand_name}</h3>

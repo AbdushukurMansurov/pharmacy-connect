@@ -25,7 +25,7 @@ const buttonVariants = cva(
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
-        xl: "h-14 rounded-xl px-6 text-lg font-semibold [&_svg]:size-6",
+        xl: "min-h-14 h-auto rounded-xl px-6 py-3 text-center text-lg font-semibold leading-snug whitespace-normal [&_svg]:size-6",
       },
     },
     defaultVariants: {
