@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as MedicinesRouteImport } from './routes/medicines'
 import { Route as PharmaciesRouteImport } from './routes/pharmacies'
+import { Route as ZzCareCheckRouteImport } from './routes/zz-care-check'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 
 const IndexRoute = IndexRouteImport.update({
@@ -40,6 +41,11 @@ const PharmaciesRoute = PharmaciesRouteImport.update({
   path: '/pharmacies',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ZzCareCheckRoute = ZzCareCheckRouteImport.update({
+  id: '/zz-care-check',
+  path: '/zz-care-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/medicines': typeof MedicinesRoute
   '/pharmacies': typeof PharmaciesRoute
+  '/zz-care-check': typeof ZzCareCheckRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
 }
 export interface FileRoutesByTo {
@@ -58,6 +65,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/medicines': typeof MedicinesRoute
   '/pharmacies': typeof PharmaciesRoute
+  '/zz-care-check': typeof ZzCareCheckRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
 }
 export interface FileRoutesById {
@@ -67,13 +75,26 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/medicines': typeof MedicinesRoute
   '/pharmacies': typeof PharmaciesRoute
+  '/zz-care-check': typeof ZzCareCheckRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/medicines' | '/pharmacies' | '/dashboard'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/medicines'
+    | '/pharmacies'
+    | '/zz-care-check'
+    | '/dashboard'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/medicines' | '/pharmacies' | '/dashboard'
+  to:
+    | '/'
+    | '/auth'
+    | '/medicines'
+    | '/pharmacies'
+    | '/zz-care-check'
+    | '/dashboard'
   id:
     | '__root__'
     | '/'
@@ -81,6 +102,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/medicines'
     | '/pharmacies'
+    | '/zz-care-check'
     | '/_authenticated/dashboard'
   fileRoutesById: FileRoutesById
 }
@@ -90,6 +112,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   MedicinesRoute: typeof MedicinesRoute
   PharmaciesRoute: typeof PharmaciesRoute
+  ZzCareCheckRoute: typeof ZzCareCheckRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -129,6 +152,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PharmaciesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/zz-care-check': {
+      id: '/zz-care-check'
+      path: '/zz-care-check'
+      fullPath: '/zz-care-check'
+      preLoaderRoute: typeof ZzCareCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -156,6 +186,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   MedicinesRoute: MedicinesRoute,
   PharmaciesRoute: PharmaciesRoute,
+  ZzCareCheckRoute: ZzCareCheckRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
